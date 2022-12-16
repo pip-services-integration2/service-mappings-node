@@ -5,7 +5,7 @@ import { MappingsMongoDbPersistence } from '../persistence/MappingsMongoDbPersis
 import { MappingsFilePersistence } from '../persistence/MappingsFilePersistence';
 import { MappingsMemoryPersistence } from '../persistence/MappingsMemoryPersistence';
 import { MappingsController } from '../logic/MappingsController';
-import { MappingsHttpServiceV1 } from '../services/version1/MappingsHttpServiceV1';
+import { MappingsCommandableHttpServiceV1 } from '../services/version1/MappingsCommandableHttpServiceV1';
 
 export class MappingsServiceFactory extends Factory {
 	public static Descriptor = new Descriptor("service-mappings", "factory", "default", "default", "1.0");
@@ -13,7 +13,7 @@ export class MappingsServiceFactory extends Factory {
 	public static FilePersistenceDescriptor = new Descriptor("service-mappings", "persistence", "file", "*", "1.0");
 	public static MongoDbPersistenceDescriptor = new Descriptor("service-mappings", "persistence", "mongodb", "*", "1.0");
 	public static ControllerDescriptor = new Descriptor("service-mappings", "controller", "default", "*", "1.0");
-	public static HttpServiceDescriptor = new Descriptor("service-mappings", "service", "http", "*", "1.0");
+	public static HttpServiceDescriptor = new Descriptor("service-mappings", "service", "commandable-http", "*", "1.0");
 	
 	constructor() {
 		super();
@@ -21,7 +21,7 @@ export class MappingsServiceFactory extends Factory {
 		this.registerAsType(MappingsServiceFactory.FilePersistenceDescriptor, MappingsFilePersistence);
 		this.registerAsType(MappingsServiceFactory.MongoDbPersistenceDescriptor, MappingsMongoDbPersistence);
 		this.registerAsType(MappingsServiceFactory.ControllerDescriptor, MappingsController);
-		this.registerAsType(MappingsServiceFactory.HttpServiceDescriptor, MappingsHttpServiceV1);
+		this.registerAsType(MappingsServiceFactory.HttpServiceDescriptor, MappingsCommandableHttpServiceV1);
 	}
 	
 }

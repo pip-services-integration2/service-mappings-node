@@ -7,7 +7,7 @@ const MappingsMongoDbPersistence_1 = require("../persistence/MappingsMongoDbPers
 const MappingsFilePersistence_1 = require("../persistence/MappingsFilePersistence");
 const MappingsMemoryPersistence_1 = require("../persistence/MappingsMemoryPersistence");
 const MappingsController_1 = require("../logic/MappingsController");
-const MappingsHttpServiceV1_1 = require("../services/version1/MappingsHttpServiceV1");
+const MappingsCommandableHttpServiceV1_1 = require("../services/version1/MappingsCommandableHttpServiceV1");
 class MappingsServiceFactory extends pip_services3_components_nodex_1.Factory {
     constructor() {
         super();
@@ -15,7 +15,7 @@ class MappingsServiceFactory extends pip_services3_components_nodex_1.Factory {
         this.registerAsType(MappingsServiceFactory.FilePersistenceDescriptor, MappingsFilePersistence_1.MappingsFilePersistence);
         this.registerAsType(MappingsServiceFactory.MongoDbPersistenceDescriptor, MappingsMongoDbPersistence_1.MappingsMongoDbPersistence);
         this.registerAsType(MappingsServiceFactory.ControllerDescriptor, MappingsController_1.MappingsController);
-        this.registerAsType(MappingsServiceFactory.HttpServiceDescriptor, MappingsHttpServiceV1_1.MappingsHttpServiceV1);
+        this.registerAsType(MappingsServiceFactory.HttpServiceDescriptor, MappingsCommandableHttpServiceV1_1.MappingsCommandableHttpServiceV1);
     }
 }
 exports.MappingsServiceFactory = MappingsServiceFactory;
@@ -24,5 +24,5 @@ MappingsServiceFactory.MemoryPersistenceDescriptor = new pip_services3_commons_n
 MappingsServiceFactory.FilePersistenceDescriptor = new pip_services3_commons_nodex_1.Descriptor("service-mappings", "persistence", "file", "*", "1.0");
 MappingsServiceFactory.MongoDbPersistenceDescriptor = new pip_services3_commons_nodex_1.Descriptor("service-mappings", "persistence", "mongodb", "*", "1.0");
 MappingsServiceFactory.ControllerDescriptor = new pip_services3_commons_nodex_1.Descriptor("service-mappings", "controller", "default", "*", "1.0");
-MappingsServiceFactory.HttpServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("service-mappings", "service", "http", "*", "1.0");
+MappingsServiceFactory.HttpServiceDescriptor = new pip_services3_commons_nodex_1.Descriptor("service-mappings", "service", "commandable-http", "*", "1.0");
 //# sourceMappingURL=MappingsServiceFactory.js.map

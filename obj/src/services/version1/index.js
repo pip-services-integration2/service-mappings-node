@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MappingsHttpServiceV1 = void 0;
-var MappingsHttpServiceV1_1 = require("./MappingsHttpServiceV1");
-Object.defineProperty(exports, "MappingsHttpServiceV1", { enumerable: true, get: function () { return MappingsHttpServiceV1_1.MappingsHttpServiceV1; } });
+exports.MappingsCommandableHttpServiceV1 = void 0;
+var MappingsCommandableHttpServiceV1_1 = require("./MappingsCommandableHttpServiceV1");
+Object.defineProperty(exports, "MappingsCommandableHttpServiceV1", { enumerable: true, get: function () { return MappingsCommandableHttpServiceV1_1.MappingsCommandableHttpServiceV1; } });
 //# sourceMappingURL=index.js.map

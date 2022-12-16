@@ -10,7 +10,7 @@ import { References } from 'pip-services3-commons-nodex';
 import { MappingV1 } from '../../../src/data/version1/MappingV1';
 import { MappingsMemoryPersistence } from '../../../src/persistence/MappingsMemoryPersistence';
 import { MappingsController } from '../../../src/logic/MappingsController';
-import { MappingsHttpServiceV1 } from '../../../src/services/version1/MappingsHttpServiceV1';
+import { MappingsCommandableHttpServiceV1 } from '../../../src/services/version1/MappingsCommandableHttpServiceV1';
 
 let httpConfig = ConfigParams.fromTuples(
     "connection.protocol", "http",
@@ -19,21 +19,21 @@ let httpConfig = ConfigParams.fromTuples(
 );
 
 
-suite('MappingsHttpServiceV1', () => {
-    let service: MappingsHttpServiceV1;
+suite('MappingsCommandableHttpServiceV1', () => {
+    let service: MappingsCommandableHttpServiceV1;
     let rest: any;
 
     suiteSetup(async () => {
         let persistence = new MappingsMemoryPersistence();
         let controller = new MappingsController();
 
-        service = new MappingsHttpServiceV1();
+        service = new MappingsCommandableHttpServiceV1();
         service.configure(httpConfig);
 
         let references: References = References.fromTuples(
             new Descriptor('service-mappings', 'persistence', 'memory', 'default', '1.0'), persistence,
             new Descriptor('service-mappings', 'controller', 'default', 'default', '1.0'), controller,
-            new Descriptor('service-mappings', 'service', 'http', 'default', '1.0'), service
+            new Descriptor('service-mappings', 'service', 'commandable-http', 'default', '1.0'), service
         );
         controller.setReferences(references);
         service.setReferences(references);
